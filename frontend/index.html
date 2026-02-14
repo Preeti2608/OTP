@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ultimate Auth Tester</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="auth-card" class="card">
+            <h2>Welcome</h2>
+            <input type="email" id="email" placeholder="Enter Email">
+            <input type="password" id="password" placeholder="Enter Password">
+            <div class="btn-group">
+                <button onclick="handleAuth('signup')">Sign Up</button>
+                <button onclick="handleAuth('login')" class="secondary">Login</button>
+            </div>
+            <p onclick="showSection('forgot-card')" class="link">Forgot Password?</p>
+        </div>
+
+        <div id="forgot-card" class="card" style="display:none;">
+            <h2>Forgot Password</h2>
+            <input type="email" id="forgot-email" placeholder="Enter Registered Email">
+            <button onclick="handleForgot()">Send Reset OTP</button>
+            <p onclick="showSection('auth-card')" class="link">Back to Login</p>
+        </div>
+
+        <div id="otp-card" class="card" style="display:none;">
+            <h2 id="otp-title">Verify OTP</h2>
+            <p id="otp-msg">Check your email for a 6-digit code.</p>
+            <input type="text" id="otp-input" placeholder="000000" maxlength="6">
+            <button onclick="handleVerify()">Verify Code</button>
+            <p class="timer">Expires in 5:00</p>
+        </div>
+
+        <div id="reset-card" class="card" style="display:none;">
+            <h2>Create New Password</h2>
+            <input type="password" id="new-password" placeholder="New Password">
+            <button onclick="handleResetSubmit()">Update Password</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
